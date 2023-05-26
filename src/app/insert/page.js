@@ -11,10 +11,7 @@ const validationSchema = Yup.object().shape({
   name: Yup.string().required("Required"),
   email: Yup.string().email("Invalid email").required("Required"),
   password: Yup.string()
-    .min(6, "Password must be 6 characters or longer")
-    .required("Required"),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password"), null], "Passwords isn't correct!")
+    .min(1, "Password must be 6 characters or longer")
     .required("Required"),
   file: Yup.mixed()
     .test("fileSize", "File too large", (value) => {
@@ -117,18 +114,18 @@ export default function Home() {
         {({ isSubmitting, setFieldValue }) => (
           <div className="max-w-6xl p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
             <Form className="flex flex-col items-center justify-center text-white mt-6">
-              <img src="https://i.pinimg.com/564x/c1/c9/67/c1c9675c989b086313a67830f800802d.jpg"
+              <img src="https://i.pinimg.com/564x/d4/5c/7b/d45c7bb5dbb092cb75f6e0433b472d99.jpg"
                 className="rounded-full w-32"></img>
-              <h1 className="text-3xl font-bold mt-4">Login</h1>
+              <h1 className="text-3xl font-bold mt-4">Add product</h1>
               <div className="flex flex-col mb-4">
                 <label htmlFor="name" className="mb-1">
-                  Name*
+                  Title*
                 </label>
                 <Field
                   type="text"
                   name="name"
                   id="name"
-                  className="border border-gray-500 rounded px-4 py-2 text-black" placeholder="Username"
+                  className="border border-gray-500 rounded px-4 py-2 text-black"   
                 />
                 <ErrorMessage
                   name="name"
@@ -138,45 +135,36 @@ export default function Home() {
               </div>
               <div className="flex flex-col mb-4">
                 <label htmlFor="email" className="mb-1">
-                  Email*
+                  Description*
                 </label>
                 <Field
-                  type="email"
+                  type="text"
                   name="email"
                   id="email"
-                  className="border border-gray-500 rounded px-4 py-2 text-black" placeholder="name@gmail.com"
-                />
-                <ErrorMessage
-                  name="email"
-                  component="div"
-                  className="text-red-500"
+                  className="border border-gray-500 rounded px-4 py-2 text-black" 
                 />
               </div>
               <div className="flex flex-col mb-4">
                 <label htmlFor="password" className="mb-1">
-                  Password*
+                  ID*
                 </label>
                 <Field
-                  type="password"
+                  type="text"
                   name="password"
                   id="password"
-                  className="border border-gray-500 rounded px-4 py-2 text-black" placeholder="password"
+                  className="border border-gray-500 rounded px-4 py-2 text-black" 
                 />
-                <ErrorMessage
-                  name="password"
-                  component="div"
-                  className="text-red-500"
-                />
+
               </div>
               <div className="flex flex-col mb-4">
                 <label htmlFor="confirmPassword" className="mb-1">
-                  Confirm Password*
+                  Price*
                 </label>
                 <Field
-                  type="password"
+                  type="text"
                   name="confirmPassword"
                   id="confirmPassword"
-                  className="border border-gray-500 rounded px-4 py-2 text-black" placeholder="password"
+                  className="border border-gray-500 rounded px-4 py-2 text-black" 
                 />
                 <ErrorMessage
                   name="confirmPassword"
@@ -187,7 +175,7 @@ export default function Home() {
  
               <div className="flex flex-col mb-4">
                 <label htmlFor="file" className="mb-1">
-                  Avatar
+                  Image
                 </label>
                 <Field
                   type="file"
@@ -213,7 +201,7 @@ export default function Home() {
                   : "bg-blue-500 hover:bg-blue-700"
                   } text-white font-bold py-2 px-4 rounded`}
               >
-                Submit
+                Upload
               </button>
             </Form>
           </div>

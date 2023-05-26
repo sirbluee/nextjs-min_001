@@ -10,7 +10,6 @@ export const metadata = {
 import React from 'react'
 export default async function page() {
   const items = await getCategories();
-  console.log(items)
   return (
     <div>{items.name}</div>
   )
