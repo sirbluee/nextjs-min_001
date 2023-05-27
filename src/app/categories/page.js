@@ -1,17 +1,7 @@
-const getCategories = async () => {
-  const response = await fetch("https://api.escuelajs.co/api/v1/categories");
-  const data = await response.json();
-  return data;
-};
-export const metadata = {
-  title: "Categories",
-  description: "This is the categories page",
-}
 import React from 'react'
-export default async function page() {
-  const items = await getCategories();
+
+export default function page() {
   return (
-    <div>{items.name}</div>
+    <div className='py-24 flex justify-center items-center'>Data Emty</div>
   )
 }
-
